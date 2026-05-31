@@ -871,4 +871,28 @@ ul, ol { list-style: none; }
   .whatsapp-float { bottom: 16px; right: 16px; }
 }
 
+/* === ALL TEXT NEON GREEN === */
+body, body *, h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, label, input, textarea, select, option, .product-card__title, .price__current, .footer__link, .nav__link, .section-title, .hero__title, .hero__subtitle, .header__logo-link, .product-card__vendor, .footer__heading, .promo-banner, .trust-badge, .newsletter, .cart-drawer, blockquote, em, strong {
+  color: #39FF14 !important;
+}
+
+/* Placeholder text — dimmer green */
+input::placeholder, textarea::placeholder {
+  color: rgba(57, 255, 20, 0.5) !important;
+}
+
+/* Keep black text on green-background elements */
+.btn--primary,
+.btn--primary:hover,
+.btn--primary:focus,
+.btn--primary *,
+.product-card__badge--sale,
+.header__cart-count,
+.skip-link,
+.header__search-submit,
+button.btn--primary,
+input[type=submit].btn--primary {
+  color: #0a0a0a !important;
+}
+
 
