@@ -24,7 +24,7 @@
       "promo-banner": {
         "type": "promo-banner",
         "settings": {
-          "show_banner": true,
+          "show_banner": false,
           "text": "🚀 NUOVO BRAND - SPEDIZIONE GRATUITA SOPRA €50 - WhatsApp 379 153 6175",
           "link": "",
           "bg_color": "#39ff14",
