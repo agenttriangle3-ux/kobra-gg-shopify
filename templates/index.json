@@ -1,24 +1,70 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "hero",
       "settings": {
+        "badge_text": "Offerta Limitata",
         "heading_line1": "DOMINA IL",
         "heading_line2": "GAMING",
         "subtitle": "Cuffie, Mouse, Tastiere e tutto il gear per veri gamer. Spedizione veloce in Italia.",
         "cta1_text": "Acquista Ora",
-        "cta2_text": "Esplora Categorie"
+        "cta1_url": "",
+        "cta2_text": "Esplora Categorie",
+        "cta2_url": "",
+        "bg_image": "shopify://shop_images/generate_20260527_142455_2dad01f4_2_1.png"
       }
     },
     "trust": {
       "type": "trust-badges",
-      "block_order": ["badge1", "badge2", "badge3", "badge4"],
       "blocks": {
-        "badge1": {"type": "badge", "settings": {"icon": "🔒", "title": "Pagamento Sicuro", "subtitle": "Stripe SSL certificato"}},
-        "badge2": {"type": "badge", "settings": {"icon": "🚚", "title": "Spedizione Tracciata", "subtitle": "Tracking in tempo reale"}},
-        "badge3": {"type": "badge", "settings": {"icon": "↩️", "title": "Reso 14 Giorni", "subtitle": "Diritto di recesso UE"}},
-        "badge4": {"type": "badge", "settings": {"icon": "💬", "title": "Supporto WhatsApp", "subtitle": "7 giorni su 7"}}
+        "badge1": {
+          "type": "badge",
+          "settings": {
+            "icon": "🔒",
+            "title": "Pagamento Sicuro",
+            "subtitle": "Stripe SSL certificato"
+          }
+        },
+        "badge2": {
+          "type": "badge",
+          "settings": {
+            "icon": "🚚",
+            "title": "Spedizione Tracciata",
+            "subtitle": "Tracking in tempo reale"
+          }
+        },
+        "badge3": {
+          "type": "badge",
+          "settings": {
+            "icon": "↩️",
+            "title": "Reso 14 Giorni",
+            "subtitle": "Diritto di recesso UE"
+          }
+        },
+        "badge4": {
+          "type": "badge",
+          "settings": {
+            "icon": "💬",
+            "title": "Supporto WhatsApp",
+            "subtitle": "7 giorni su 7"
+          }
+        }
       },
+      "block_order": [
+        "badge1",
+        "badge2",
+        "badge3",
+        "badge4"
+      ],
       "settings": {}
     },
     "featured": {
@@ -26,6 +72,7 @@
       "settings": {
         "eyebrow": "🔥 IN TENDENZA",
         "title": "Prodotti Consigliati",
+        "collection": "",
         "products_count": 8,
         "columns": "4",
         "show_view_all": true
@@ -33,16 +80,74 @@
     },
     "categories": {
       "type": "collection-list",
-      "block_order": ["cat1", "cat2", "cat3", "cat4", "cat5", "cat6"],
       "blocks": {
-        "cat1": {"type": "collection_item", "settings": {"title": "Cuffie Gaming", "collection_handle": "cuffie", "icon": "🎧"}},
-        "cat2": {"type": "collection_item", "settings": {"title": "Mouse Gaming", "collection_handle": "mouse", "icon": "🖱️"}},
-        "cat3": {"type": "collection_item", "settings": {"title": "Tastiere", "collection_handle": "tastiere", "icon": "⌨️"}},
-        "cat4": {"type": "collection_item", "settings": {"title": "Controller", "collection_handle": "controller", "icon": "🎮"}},
-        "cat5": {"type": "collection_item", "settings": {"title": "Mousepad", "collection_handle": "mousepad", "icon": "🟩"}},
-        "cat6": {"type": "collection_item", "settings": {"title": "Tutti i Prodotti", "collection_handle": "all", "icon": "🛒"}}
+        "cat1": {
+          "type": "collection_item",
+          "settings": {
+            "title": "Cuffie Gaming",
+            "collection": "",
+            "collection_handle": "cuffie",
+            "icon": "🎧"
+          }
+        },
+        "cat2": {
+          "type": "collection_item",
+          "settings": {
+            "title": "Mouse Gaming",
+            "collection": "",
+            "collection_handle": "mouse",
+            "icon": "🖱️"
+          }
+        },
+        "cat3": {
+          "type": "collection_item",
+          "settings": {
+            "title": "Tastiere",
+            "collection": "",
+            "collection_handle": "tastiere",
+            "icon": "⌨️"
+          }
+        },
+        "cat4": {
+          "type": "collection_item",
+          "settings": {
+            "title": "Controller",
+            "collection": "",
+            "collection_handle": "controller",
+            "icon": "🎮"
+          }
+        },
+        "cat5": {
+          "type": "collection_item",
+          "settings": {
+            "title": "Mousepad",
+            "collection": "",
+            "collection_handle": "mousepad",
+            "icon": "🟩"
+          }
+        },
+        "cat6": {
+          "type": "collection_item",
+          "settings": {
+            "title": "Tutti i Prodotti",
+            "collection": "",
+            "collection_handle": "all",
+            "icon": "🛒"
+          }
+        }
       },
-      "settings": {"title": "ESPLORA PER CATEGORIA"}
+      "block_order": [
+        "cat1",
+        "cat2",
+        "cat3",
+        "cat4",
+        "cat5",
+        "cat6"
+      ],
+      "settings": {
+        "title": "ESPLORA PER CATEGORIA",
+        "subtitle": ""
+      }
     },
     "newsletter": {
       "type": "newsletter",
@@ -56,10 +161,19 @@
       "type": "testimonials",
       "settings": {
         "title": "COSA DICONO I GAMER",
+        "subtitle": "",
         "show_cta": true,
-        "cta_text": "Lascia anche tu una recensione"
+        "cta_text": "Lascia anche tu una recensione",
+        "cta_url": ""
       }
     }
   },
-  "order": ["hero", "trust", "featured", "categories", "newsletter", "testimonials"]
+  "order": [
+    "hero",
+    "trust",
+    "featured",
+    "categories",
+    "newsletter",
+    "testimonials"
+  ]
 }
