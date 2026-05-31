@@ -50,6 +50,14 @@
             "subtitle": "Diritto di recesso UE"
           }
         },
+        "badge_94ijn6": {
+          "type": "badge",
+          "settings": {
+            "icon": "🔒",
+            "title": "Pagamento Sicuro",
+            "subtitle": "Stripe SSL certificato"
+          }
+        },
         "badge4": {
           "type": "badge",
           "settings": {
@@ -63,6 +71,7 @@
         "badge1",
         "badge2",
         "badge3",
+        "badge_94ijn6",
         "badge4"
       ],
       "settings": {}
@@ -85,7 +94,7 @@
           "type": "collection_item",
           "settings": {
             "title": "Cuffie Gaming",
-            "collection": "",
+            "collection": "cuffie",
             "collection_handle": "cuffie",
             "icon": "🎧"
           }
@@ -94,7 +103,7 @@
           "type": "collection_item",
           "settings": {
             "title": "Mouse Gaming",
-            "collection": "",
+            "collection": "mouse",
             "collection_handle": "mouse",
             "icon": "🖱️"
           }
@@ -103,7 +112,7 @@
           "type": "collection_item",
           "settings": {
             "title": "Tastiere",
-            "collection": "",
+            "collection": "tastiere",
             "collection_handle": "tastiere",
             "icon": "⌨️"
           }
@@ -112,7 +121,7 @@
           "type": "collection_item",
           "settings": {
             "title": "Controller",
-            "collection": "",
+            "collection": "controler",
             "collection_handle": "controller",
             "icon": "🎮"
           }
@@ -121,7 +130,7 @@
           "type": "collection_item",
           "settings": {
             "title": "Mousepad",
-            "collection": "",
+            "collection": "mousepad",
             "collection_handle": "mousepad",
             "icon": "🟩"
           }
@@ -130,9 +139,18 @@
           "type": "collection_item",
           "settings": {
             "title": "Tutti i Prodotti",
-            "collection": "",
+            "collection": "frontpage",
             "collection_handle": "all",
             "icon": "🛒"
+          }
+        },
+        "collection_item_DUgXiy": {
+          "type": "collection_item",
+          "settings": {
+            "title": "",
+            "collection": "",
+            "collection_handle": "",
+            "icon": "🎮"
           }
         }
       },
@@ -142,7 +160,8 @@
         "cat3",
         "cat4",
         "cat5",
-        "cat6"
+        "cat6",
+        "collection_item_DUgXiy"
       ],
       "settings": {
         "title": "ESPLORA PER CATEGORIA",
