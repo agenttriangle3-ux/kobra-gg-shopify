@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="it" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <title>
+    {%- if request.page_type == 'index' -%}
+      {{ shop.name }} — Gaming Gear, Prezzi da Kobra
+    {%- elsif page_title -%}
+      {{ page_title }} | {{ shop.name }}
+    {%- else -%}
+      {{ shop.name }}
+    {%- endif -%}
+  </title>
+
+  {%- if page_description -%}
+    <meta name="description" content="{{ page_description | escape }}">
+  {%- else -%}
+    <meta name="description" content="Il miglior negozio di accessori gaming in Italia. Cuffie, mouse, tastiere, controller. Prezzi bassi, spedizione veloce.">
+  {%- endif -%}
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="{{ shop.name }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:title" content="{{ page_title | default: shop.name }}">
+  <meta property="og:type" content="website">
+  {%- if page_image -%}
+    <meta property="og:image" content="{{ page_image | image_url: width: 1200 }}">
+  {%- endif -%}
+  {%- if page_description -%}
+    <meta property="og:description" content="{{ page_description | escape }}">
+  {%- endif -%}
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page_title | default: shop.name }}">
+  {%- if page_description -%}
+    <meta name="twitter:description" content="{{ page_description | escape }}">
+  {%- endif -%}
+
+  <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  {{ content_for_header }}
+
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+</head>
+
+<body class="template-{{ request.page_type }} {% if request.page_type == 'index' %}template-index{% endif %}">
+  <a class="skip-link sr-only" href="#main-content">Salta al contenuto principale</a>
+
+  {% section 'promo-banner' %}
+  {% section 'header' %}
+
+  <main id="main-content" role="main" tabindex="-1">
+    {{ content_for_layout }}
+  </main>
+
+  {% section 'footer' %}
+
+  <!-- Cart Drawer -->
+  <div id="cart-drawer" class="cart-drawer" aria-hidden="true" role="dialog" aria-label="Carrello">
+    <div class="cart-drawer__overlay" id="cart-drawer-overlay"></div>
+    <div class="cart-drawer__content">
+      <div class="cart-drawer__header">
+        <h2 class="cart-drawer__title">Il Tuo Carrello</h2>
+        <button class="cart-drawer__close" id="cart-drawer-close" aria-label="Chiudi carrello">
+          {% render 'icon-close' %}
+        </button>
+      </div>
+      <div class="cart-drawer__body" id="cart-drawer-body">
+        <div class="cart-drawer__loading">Caricamento...</div>
+      </div>
+      <div class="cart-drawer__footer" id="cart-drawer-footer" style="display:none">
+        <div class="cart-drawer__subtotal">
+          <span>Subtotale</span>
+          <span id="cart-drawer-subtotal"></span>
+        </div>
+        <a href="/cart" class="btn btn--primary btn--full">Procedi al Checkout</a>
+        <a href="/collections/all" class="btn btn--outline btn--full" style="margin-top:8px">Continua a fare Shopping</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Drawer -->
+  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__overlay" id="mobile-menu-overlay"></div>
+    <div class="mobile-menu__content">
+      <div class="mobile-menu__header">
+        <span class="mobile-menu__logo">KOBRA<span class="text-green">.GG</span></span>
+        <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Chiudi menu">
+          {% render 'icon-close' %}
+        </button>
+      </div>
+      <nav class="mobile-menu__nav">
+        <a href="/" class="mobile-menu__link">Home</a>
+        <a href="/collections/cuffie" class="mobile-menu__link">Cuffie</a>
+        <a href="/collections/mouse" class="mobile-menu__link">Mouse</a>
+        <a href="/collections/tastiere" class="mobile-menu__link">Tastiere</a>
+        <a href="/collections/controller" class="mobile-menu__link">Controller</a>
+        <a href="/collections/mousepad" class="mobile-menu__link">Mousepad</a>
+        <a href="/collections/all?sort_by=price-ascending" class="mobile-menu__link mobile-menu__link--sale">Sale 🔥</a>
+        <hr class="mobile-menu__divider">
+        <a href="/account/login" class="mobile-menu__link">Accedi</a>
+        <a href="/account/register" class="mobile-menu__link">Registrati</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/393791536175" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contattaci su WhatsApp">
+    {% render 'icon-whatsapp' %}
+  </a>
+
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+</body>
+</html>

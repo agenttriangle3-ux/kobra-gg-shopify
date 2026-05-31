@@ -1,0 +1,51 @@
+<section class="testimonials section-padding">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <h2 class="section-title">{{ section.settings.title | default: 'COSA DICONO I GAMER' }}</h2>
+      {%- if section.settings.subtitle != blank -%}
+        <p class="section-subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+    </div>
+
+    <!-- Trustpilot Widget Placeholder -->
+    <!-- Attiva questo widget quando avrai un account Trustpilot verificato -->
+    <div class="trustpilot-placeholder">
+      <div class="trustpilot-placeholder__inner">
+        <p class="trustpilot-placeholder__text">Le recensioni Trustpilot saranno visualizzate qui una volta attivato l'account.</p>
+        <!-- Quando avrai account Trustpilot, sostituisci questo div con il widget ufficiale:
+        <div class="trustpilot-widget"
+          data-locale="it-IT"
+          data-template-id="TUO_TEMPLATE_ID"
+          data-businessunit-id="TUO_BUSINESS_ID"
+          data-style-height="140px"
+          data-style-width="100%"
+          data-theme="dark">
+          <a href="https://it.trustpilot.com/review/kobra.gg" target="_blank" rel="noopener">Trustpilot</a>
+        </div>
+        -->
+      </div>
+    </div>
+
+    {%- if section.settings.show_cta -%}
+      <div class="testimonials__cta">
+        <a href="{{ section.settings.cta_url | default: 'https://it.trustpilot.com' }}" target="_blank" rel="noopener noreferrer" class="btn btn--outline">
+          {{ section.settings.cta_text | default: 'Lascia anche tu una recensione' }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonianze",
+  "settings": [
+    {"type": "text", "id": "title", "label": "Titolo", "default": "COSA DICONO I GAMER"},
+    {"type": "text", "id": "subtitle", "label": "Sottotitolo"},
+    {"type": "checkbox", "id": "show_cta", "label": "Mostra CTA", "default": true},
+    {"type": "text", "id": "cta_text", "label": "Testo CTA", "default": "Lascia anche tu una recensione"},
+    {"type": "url", "id": "cta_url", "label": "Link CTA (Trustpilot)"}
+  ],
+  "presets": [{"name": "Testimonianze"}]
+}
+{% endschema %}

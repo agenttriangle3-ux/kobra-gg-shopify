@@ -1,0 +1,66 @@
+<section class="hero" aria-label="Hero">
+  <div class="hero__bg">
+    {%- if section.settings.bg_image != blank -%}
+      <img src="{{ section.settings.bg_image | image_url: width: 1920 }}" alt="" class="hero__bg-img" loading="eager" width="1920" height="1080">
+      <div class="hero__bg-overlay"></div>
+    {%- else -%}
+      <div class="hero__bg-gradient"></div>
+    {%- endif -%}
+    <div class="hero__glow hero__glow--left"></div>
+    <div class="hero__glow hero__glow--right"></div>
+    <div class="hero__grid"></div>
+  </div>
+
+  <div class="hero__inner container">
+    <div class="hero__content">
+      <div class="hero__badge">
+        <span class="hero__badge-icon">🔥</span>
+        <span>{{ section.settings.badge_text | default: 'Offerta Limitata' }}</span>
+      </div>
+
+      <h1 class="hero__title">
+        {{ section.settings.heading_line1 | default: 'DOMINA IL' }}<br>
+        <span class="hero__title-accent">{{ section.settings.heading_line2 | default: 'GAMING' }}</span>
+      </h1>
+
+      <p class="hero__subtitle">{{ section.settings.subtitle | default: 'Cuffie, Mouse, Tastiere e tutto il gear per veri gamer. Spedizione veloce in Italia.' }}</p>
+
+      <div class="hero__actions">
+        <a href="{{ section.settings.cta1_url | default: '/collections/all' }}" class="btn btn--primary btn--lg">
+          {{ section.settings.cta1_text | default: 'Acquista Ora' }}
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="{{ section.settings.cta2_url | default: '/collections' }}" class="btn btn--outline btn--lg">
+          {{ section.settings.cta2_text | default: 'Esplora Categorie' }}
+        </a>
+      </div>
+    </div>
+    {%- if section.settings.hero_image != blank -%}
+      <div class="hero__image">
+        <div class="hero__image-glow"></div>
+        <img src="{{ section.settings.hero_image | image_url: width: 600 }}" alt="{{ section.settings.heading_line1 }}" class="hero__img" loading="eager" width="600" height="600">
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="hero__bottom-fade"></div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {"type": "text", "id": "badge_text", "label": "Testo badge", "default": "Offerta Limitata"},
+    {"type": "text", "id": "heading_line1", "label": "Titolo riga 1", "default": "DOMINA IL"},
+    {"type": "text", "id": "heading_line2", "label": "Titolo riga 2 (verde)", "default": "GAMING"},
+    {"type": "textarea", "id": "subtitle", "label": "Sottotitolo", "default": "Cuffie, Mouse, Tastiere e tutto il gear per veri gamer. Spedizione veloce in Italia."},
+    {"type": "text", "id": "cta1_text", "label": "CTA 1 Testo", "default": "Acquista Ora"},
+    {"type": "url", "id": "cta1_url", "label": "CTA 1 Link"},
+    {"type": "text", "id": "cta2_text", "label": "CTA 2 Testo", "default": "Esplora Categorie"},
+    {"type": "url", "id": "cta2_url", "label": "CTA 2 Link"},
+    {"type": "image_picker", "id": "bg_image", "label": "Immagine sfondo (opzionale)"},
+    {"type": "image_picker", "id": "hero_image", "label": "Immagine hero (opzionale)"}
+  ],
+  "presets": [{"name": "Hero"}]
+}
+{% endschema %}

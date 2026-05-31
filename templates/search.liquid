@@ -1,0 +1,42 @@
+{% layout 'theme' %}
+
+<section class="search-page section-padding">
+  <div class="container">
+    <h1 class="search-page__title">Cerca Prodotti</h1>
+
+    <form action="/search" method="get" class="search-page__form" role="search">
+      <input type="hidden" name="type" value="product">
+      <div class="search-page__input-wrap">
+        <input
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="Cerca prodotti gaming..."
+          class="search-page__input"
+          aria-label="Cerca prodotti"
+          autofocus
+        >
+        <button type="submit" class="btn btn--primary">Cerca</button>
+      </div>
+    </form>
+
+    {%- if search.performed -%}
+      {%- if search.results_count > 0 -%}
+        <p class="search-page__count">{{ search.results_count }} risultati per "<strong>{{ search.terms }}</strong>"</p>
+        <div class="product-grid product-grid--4">
+          {%- for item in search.results -%}
+            {%- if item.object_type == 'product' -%}
+              {% assign product = item %}
+              {% render 'product-card', product: product %}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <div class="search-empty">
+          <p class="search-empty__text">Nessun risultato per "<strong>{{ search.terms }}</strong>"</p>
+          <p>Prova con parole chiave diverse o <a href="/collections/all" class="link--green">esplora tutti i prodotti</a>.</p>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>

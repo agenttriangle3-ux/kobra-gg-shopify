@@ -1,0 +1,99 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="footer__inner">
+    <div class="footer__grid">
+      <!-- Col 1: Brand -->
+      <div class="footer__col footer__col--brand">
+        <a href="/" class="footer__logo" aria-label="{{ shop.name }}">
+          <span class="footer__logo-text">KOBRA<span class="text-green">.GG</span></span>
+        </a>
+        <p class="footer__tagline">Kobra.gg — Tutto per i veri gamer italiani. Gaming gear ai prezzi da Kobra, spedizione in tutta Europa.</p>
+        <div class="footer__social">
+          {%- if settings.social_instagram_url != blank -%}
+            <a href="{{ settings.social_instagram_url }}" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          {%- endif -%}
+          {%- if settings.social_tiktok_url != blank -%}
+            <a href="{{ settings.social_tiktok_url }}" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="TikTok">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
+            </a>
+          {%- endif -%}
+          {%- if settings.social_youtube_url != blank -%}
+            <a href="{{ settings.social_youtube_url }}" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="YouTube">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+          {%- endif -%}
+          <a href="https://wa.me/393791536175" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="WhatsApp">
+            {% render 'icon-whatsapp' %}
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Shop -->
+      <div class="footer__col">
+        <h3 class="footer__col-title">Shop</h3>
+        <ul class="footer__links">
+          <li><a href="/collections/cuffie" class="footer__link">Cuffie Gaming</a></li>
+          <li><a href="/collections/mouse" class="footer__link">Mouse Gaming</a></li>
+          <li><a href="/collections/tastiere" class="footer__link">Tastiere Gaming</a></li>
+          <li><a href="/collections/controller" class="footer__link">Controller</a></li>
+          <li><a href="/collections/mousepad" class="footer__link">Mousepad</a></li>
+          <li><a href="/collections/all" class="footer__link">Tutti i Prodotti</a></li>
+          <li><a href="/collections/all?sort_by=price-ascending" class="footer__link footer__link--sale">Sale 🔥</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Help -->
+      <div class="footer__col">
+        <h3 class="footer__col-title">Assistenza</h3>
+        <ul class="footer__links">
+          <li><a href="/pages/contatti" class="footer__link">Contatti</a></li>
+          <li><a href="/pages/spedizioni" class="footer__link">Spedizioni</a></li>
+          <li><a href="/pages/resi" class="footer__link">Resi e Rimborsi</a></li>
+          <li><a href="/pages/faq" class="footer__link">FAQ</a></li>
+          <li><a href="/pages/chi-siamo" class="footer__link">Chi Siamo</a></li>
+          <li><a href="mailto:nedelcaflorin@gmail.com" class="footer__link">nedelcaflorin@gmail.com</a></li>
+          <li><a href="https://wa.me/393791536175" target="_blank" rel="noopener noreferrer" class="footer__link">WhatsApp +39 379 153 6175</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Legal -->
+      <div class="footer__col">
+        <h3 class="footer__col-title">Legale</h3>
+        <ul class="footer__links">
+          <li><a href="/pages/privacy" class="footer__link">Privacy Policy</a></li>
+          <li><a href="/pages/termini" class="footer__link">Termini e Condizioni</a></li>
+          <li><a href="/pages/reso" class="footer__link">Politica di Reso</a></li>
+          <li><a href="/pages/cookie" class="footer__link">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Trust line -->
+    <div class="footer__trust">
+      <span>🚚 Spedizione tracciata</span>
+      <span>🔒 Pagamenti sicuri Stripe</span>
+      <span>↩️ Reso entro 14 giorni</span>
+      <span>💬 Supporto WhatsApp 7/7</span>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer__bottom">
+      <p class="footer__copyright">&copy; {{ 'now' | date: "%Y" }} Kobra.gg — Tutti i diritti riservati.</p>
+      <div class="footer__payment">
+        <!-- Payment icons SVG -->
+        <svg width="38" height="24" viewBox="0 0 38 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Visa"><rect width="38" height="24" rx="4" fill="#1A1F71"/><path d="M14.5 16.5H12.3L13.8 7.5H16L14.5 16.5ZM10.2 7.5L8.1 13.5L7.8 12.1L7 8.4C6.9 8 6.6 7.6 6 7.5H2.1L2 7.7C3.1 8 4.1 8.5 5 9.1L6.9 16.5H9.2L12.8 7.5H10.2ZM33 16.5L30.9 7.5H28.8L25.2 16.5H27.5L28 15H30.6L30.9 16.5H33ZM28.6 13.2L29.7 9.8L30.3 13.2H28.6ZM23.2 9.9C23.2 9.9 22 9.3 20.8 9.3C19.5 9.3 18.9 9.9 18.9 10.4C18.9 11.3 20.1 11.6 21.5 12.4C23 13.3 23.2 14.1 23.2 14.8C23.2 16.4 21.8 17 20.1 17C18.5 17 17.5 16.6 17.5 16.6L17.9 14.8C17.9 14.8 18.9 15.3 20.1 15.3C21 15.3 21.7 14.9 21.7 14.3C21.7 13.7 21 13.4 20 12.9C18.7 12.2 17.5 11.4 17.5 10C17.5 8.4 18.9 7.5 20.6 7.5C22 7.5 23 7.9 23 7.9L23.2 9.9Z" fill="white"/></svg>
+        <svg width="38" height="24" viewBox="0 0 38 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Mastercard"><rect width="38" height="24" rx="4" fill="#252525"/><circle cx="15" cy="12" r="7" fill="#EB001B"/><circle cx="23" cy="12" r="7" fill="#F79E1B"/><path d="M19 6.8C20.4 7.9 21.4 9.4 21.4 12C21.4 14.6 20.4 16.1 19 17.2C17.6 16.1 16.6 14.6 16.6 12C16.6 9.4 17.6 7.9 19 6.8Z" fill="#FF5F00"/></svg>
+        <svg width="38" height="24" viewBox="0 0 38 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="PayPal"><rect width="38" height="24" rx="4" fill="#003087"/><path d="M24.3 9.4C24.3 11.8 22.6 13.4 20.1 13.4H18.6L18 17H15.5L17.1 8H21C22.9 8 24.3 8.9 24.3 9.4ZM21.2 9.7H19.4L18.9 12.3H20.5C21.6 12.3 22.4 11.7 22.4 10.8C22.4 10.1 22 9.7 21.2 9.7Z" fill="#009CDE"/><path d="M27.6 10.4C27.6 12.8 25.9 14.4 23.4 14.4H21.9L21.3 17.8H18.8L20.4 8.6H24.3C26.2 8.6 27.6 9.4 27.6 10.4Z" fill="white" fill-opacity="0.6"/></svg>
+        <svg width="38" height="24" viewBox="0 0 38 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Stripe"><rect width="38" height="24" rx="4" fill="#635BFF"/><path d="M19.7 10.5C19.7 9.9 20.2 9.6 21 9.6C22.1 9.6 23.4 9.9 24.4 10.5V8.3C23.3 7.9 22.2 7.6 21 7.6C18.7 7.6 17.1 8.8 17.1 10.6C17.1 13.4 21 13 21 14.3C21 15 20.4 15.3 19.6 15.3C18.4 15.3 17 14.9 15.9 14.2V16.4C17.1 16.9 18.3 17.1 19.6 17.1C22 17.1 23.7 15.9 23.7 14.1C23.7 11.1 19.7 11.5 19.7 10.5Z" fill="white"/></svg>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,78 @@
+{% layout 'theme' %}
+
+<section class="order-page section-padding">
+  <div class="container">
+    <div class="order-header">
+      <h1 class="order-header__title">Ordine {{ order.name }}</h1>
+      <p class="order-header__date">Effettuato il {{ order.created_at | date: "%d/%m/%Y" }}</p>
+      <a href="/account" class="link--green">← Torna al tuo account</a>
+    </div>
+
+    <div class="order-grid">
+      <div class="order-items">
+        <h2 class="order-section__title">Articoli</h2>
+        <table class="orders-table">
+          <thead>
+            <tr>
+              <th>Prodotto</th>
+              <th>SKU</th>
+              <th>Prezzo</th>
+              <th>Quantità</th>
+              <th>Totale</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for line_item in order.line_items -%}
+              <tr>
+                <td>
+                  {{ line_item.title }}
+                  {%- unless line_item.variant.title == 'Default Title' -%}
+                    <br><small class="text-muted">{{ line_item.variant.title }}</small>
+                  {%- endunless -%}
+                </td>
+                <td>{{ line_item.sku }}</td>
+                <td>{{ line_item.price | money }}</td>
+                <td>{{ line_item.quantity }}</td>
+                <td>{{ line_item.final_line_price | money }}</td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+
+        <div class="order-totals">
+          <div class="order-totals__row">
+            <span>Subtotale</span>
+            <span>{{ order.subtotal_price | money }}</span>
+          </div>
+          {%- for shipping_method in order.shipping_methods -%}
+            <div class="order-totals__row">
+              <span>Spedizione ({{ shipping_method.title }})</span>
+              <span>{{ shipping_method.price | money }}</span>
+            </div>
+          {%- endfor -%}
+          {%- for tax_line in order.tax_lines -%}
+            <div class="order-totals__row">
+              <span>{{ tax_line.title }} ({{ tax_line.rate | times: 100 }}%)</span>
+              <span>{{ tax_line.price | money }}</span>
+            </div>
+          {%- endfor -%}
+          <div class="order-totals__row order-totals__row--total">
+            <span>Totale</span>
+            <span>{{ order.total_price | money }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-addresses">
+        <div class="order-address">
+          <h2 class="order-section__title">Indirizzo di Spedizione</h2>
+          {{ order.shipping_address | format_address }}
+        </div>
+        <div class="order-address">
+          <h2 class="order-section__title">Indirizzo di Fatturazione</h2>
+          {{ order.billing_address | format_address }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

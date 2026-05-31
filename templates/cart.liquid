@@ -1,0 +1,90 @@
+{% layout 'theme' %}
+
+<section class="cart-page section-padding">
+  <div class="container">
+    <h1 class="cart-page__title">Il Tuo Carrello</h1>
+
+    {%- if cart.item_count > 0 -%}
+      <form action="/cart" method="post" id="cart-form">
+        <div class="cart-layout">
+          <!-- Cart Items -->
+          <div class="cart-items">
+            <table class="cart-table">
+              <thead class="cart-table__head">
+                <tr>
+                  <th class="cart-table__th" colspan="2">Prodotto</th>
+                  <th class="cart-table__th">Prezzo</th>
+                  <th class="cart-table__th">Quantità</th>
+                  <th class="cart-table__th">Totale</th>
+                </tr>
+              </thead>
+              <tbody>
+                {%- for item in cart.items -%}
+                  <tr class="cart-item" id="cart-item-{{ item.index | plus: 1 }}">
+                    <td class="cart-item__image-cell">
+                      <a href="{{ item.url }}">
+                        <img src="{{ item.image | image_url: width: 120 }}" alt="{{ item.title | escape }}" width="80" height="80" loading="lazy" class="cart-item__img">
+                      </a>
+                    </td>
+                    <td class="cart-item__info">
+                      <a href="{{ item.url }}" class="cart-item__title">{{ item.product.title }}</a>
+                      {%- unless item.product.has_only_default_variant -%}
+                        <p class="cart-item__variant">{{ item.variant.title }}</p>
+                      {%- endunless -%}
+                      <a href="/cart/change?line={{ forloop.index }}&quantity=0" class="cart-item__remove" aria-label="Rimuovi {{ item.title }}">Rimuovi</a>
+                    </td>
+                    <td class="cart-item__price">{{ item.original_price | money }}</td>
+                    <td class="cart-item__qty">
+                      <div class="quantity-selector quantity-selector--sm">
+                        <button type="button" class="quantity-selector__btn" onclick="this.nextElementSibling.stepDown(); this.closest('form').submit();">−</button>
+                        <input type="number" name="updates[{{ item.index | plus: 1 }}]" value="{{ item.quantity }}" min="0" max="99" class="quantity-selector__input" aria-label="Quantità">
+                        <button type="button" class="quantity-selector__btn" onclick="this.previousElementSibling.stepUp(); this.closest('form').submit();">+</button>
+                      </div>
+                    </td>
+                    <td class="cart-item__total">{{ item.final_line_price | money }}</td>
+                  </tr>
+                {%- endfor -%}
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Cart Summary -->
+          <div class="cart-summary">
+            <div class="cart-summary__box">
+              <h2 class="cart-summary__title">Riepilogo Ordine</h2>
+              <div class="cart-summary__row">
+                <span>Subtotale</span>
+                <span>{{ cart.total_price | money }}</span>
+              </div>
+              <p class="cart-summary__shipping-note">Spedizione e tasse calcolate al checkout</p>
+
+              <div class="cart-summary__note">
+                <label for="cart-note" class="cart-summary__note-label">Note per l'ordine</label>
+                <textarea name="note" id="cart-note" class="cart-summary__note-input" placeholder="Istruzioni speciali per il tuo ordine..." rows="3">{{ cart.note }}</textarea>
+              </div>
+
+              <button type="submit" name="checkout" class="btn btn--primary btn--full btn--lg">
+                Procedi al Checkout
+              </button>
+              <a href="/collections/all" class="btn btn--outline btn--full" style="margin-top:12px">Continua a fare Shopping</a>
+
+              <!-- Mini trust badges -->
+              <div class="cart-trust">
+                <span>🔒 Pagamento sicuro Stripe</span>
+                <span>↩️ Reso 14 giorni</span>
+                <span>🚚 Spedizione tracciata</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    {%- else -%}
+      <div class="cart-empty">
+        <div class="cart-empty__icon">🛒</div>
+        <h2 class="cart-empty__title">Il tuo carrello è vuoto</h2>
+        <p class="cart-empty__text">Aggiungi qualcosa di fantastico e torna qui!</p>
+        <a href="/collections/all" class="btn btn--primary btn--lg">Esplora i Prodotti</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>

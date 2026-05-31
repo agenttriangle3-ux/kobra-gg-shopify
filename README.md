@@ -1,0 +1,1 @@
+﻿# Kobra.gg Shopify Theme

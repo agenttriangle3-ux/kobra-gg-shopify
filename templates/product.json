@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "title": "ENTRA NEL CLAN",
+        "subtitle": "Sconto 10% sul primo ordine + offerte esclusive",
+        "btn_text": "Iscriviti"
+      }
+    }
+  },
+  "order": ["main", "newsletter"]
+}

@@ -1,0 +1,31 @@
+{% layout 'theme' %}
+
+<section class="auth-page section-padding">
+  <div class="container">
+    <div class="auth-card">
+      <h1 class="auth-card__title">Accedi</h1>
+      <p class="auth-card__subtitle">Accedi al tuo account Kobra.GG</p>
+
+      {%- form 'customer_login', id: 'login-form' -%}
+        {%- if form.errors -%}
+          <div class="auth-errors">{{ form.errors | default_errors }}</div>
+        {%- endif -%}
+
+        <div class="auth-field">
+          <label for="customer-email" class="auth-label">Email</label>
+          <input type="email" name="customer[email]" id="customer-email" class="auth-input" autocomplete="email" required>
+        </div>
+        <div class="auth-field">
+          <label for="customer-password" class="auth-label">Password</label>
+          <input type="password" name="customer[password]" id="customer-password" class="auth-input" autocomplete="current-password" required>
+        </div>
+        <div class="auth-forgot">
+          <a href="/account/login#recover" class="link--green">Password dimenticata?</a>
+        </div>
+        <button type="submit" class="btn btn--primary btn--full btn--lg">Accedi</button>
+      {%- endform -%}
+
+      <p class="auth-alt">Non hai un account? <a href="/account/register" class="link--green">Registrati</a></p>
+    </div>
+  </div>
+</section>

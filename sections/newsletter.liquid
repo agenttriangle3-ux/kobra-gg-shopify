@@ -1,0 +1,50 @@
+<section class="newsletter section-padding">
+  <div class="container">
+    <div class="newsletter__card">
+      <div class="newsletter__content">
+        <h2 class="newsletter__title">{{ section.settings.title | default: 'ENTRA NEL CLAN' }}</h2>
+        <p class="newsletter__subtitle">{{ section.settings.subtitle | default: 'Sconto 10% sul primo ordine + offerte esclusive per i membri' }}</p>
+
+        {%- form 'customer', id: 'newsletter-form' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter,kobra-gg">
+          <div class="newsletter__form">
+            <input
+              class="newsletter__input"
+              type="email"
+              name="contact[email]"
+              id="newsletter-email"
+              placeholder="La tua email..."
+              required
+              autocomplete="email"
+              aria-label="Indirizzo email"
+            >
+            <button type="submit" class="btn btn--primary newsletter__submit">
+              {{ section.settings.btn_text | default: 'Iscriviti' }}
+            </button>
+          </div>
+          {%- if form.posted_successfully? -%}
+            <p class="newsletter__success">Benvenuto nel clan! Controlla la tua email per lo sconto.</p>
+          {%- elsif form.errors -%}
+            <p class="newsletter__error">{{ form.errors | default_errors }}</p>
+          {%- endif -%}
+        {%- endform -%}
+
+        <p class="newsletter__disclaimer">
+          Iscrivendoti accetti la nostra <a href="/pages/privacy">Privacy Policy</a>. Puoi disiscriverti in qualsiasi momento.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    {"type": "text", "id": "title", "label": "Titolo", "default": "ENTRA NEL CLAN"},
+    {"type": "textarea", "id": "subtitle", "label": "Sottotitolo", "default": "Sconto 10% sul primo ordine + offerte esclusive per i membri"},
+    {"type": "text", "id": "btn_text", "label": "Testo bottone", "default": "Iscriviti"}
+  ],
+  "presets": [{"name": "Newsletter"}]
+}
+{% endschema %}

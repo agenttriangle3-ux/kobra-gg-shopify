@@ -1,0 +1,166 @@
+{
+  "general": {
+    "search": {
+      "search": "Cerca",
+      "placeholder": "Cerca prodotti gaming...",
+      "results_with_count": "{{count}} risultati per \"{{terms}}\"",
+      "no_results": "Nessun risultato per \"{{terms}}\"",
+      "submit": "Cerca"
+    },
+    "pagination": {
+      "previous": "Precedente",
+      "next": "Successiva"
+    },
+    "meta": {
+      "tags": "Con tag {{tags}}",
+      "page": "Pagina {{page}}"
+    },
+    "404": {
+      "title": "Pagina non trovata",
+      "subtext": "La pagina che stai cercando non esiste.",
+      "link": "Torna alla homepage"
+    },
+    "continue_shopping": "Continua a fare shopping"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Aggiungi al Carrello",
+      "sold_out": "Esaurito",
+      "unavailable": "Non disponibile",
+      "pick_an_option": "Scegli un'opzione",
+      "quantity": "Quantità",
+      "description": "Descrizione",
+      "sale": "Offerta",
+      "on_sale": "In offerta",
+      "view_all_variants": "Vedi tutte le varianti",
+      "product_count_simple": "{{count}} prodotto",
+      "product_count": "{{count}} prodotti"
+    },
+    "facets": {
+      "filter_by": "Filtra per",
+      "sort_by_label": "Ordina per:",
+      "filters": "Filtri",
+      "clear_all": "Rimuovi tutto",
+      "from": "Da",
+      "to": "A",
+      "sort_by": {
+        "manual": "In evidenza",
+        "best-selling": "Più venduti",
+        "title-ascending": "A-Z",
+        "title-descending": "Z-A",
+        "price-ascending": "Prezzo: dal basso",
+        "price-descending": "Prezzo: dall'alto",
+        "created-ascending": "Più vecchi",
+        "created-descending": "Più recenti"
+      }
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Il Tuo Carrello",
+      "empty": "Il carrello è vuoto",
+      "note": "Note per l'ordine",
+      "note_placeholder": "Hai istruzioni speciali per il tuo ordine?",
+      "subtotal": "Subtotale",
+      "checkout": "Procedi al Checkout",
+      "taxes_and_shipping_policy_at_checkout_html": "Tasse e spedizione calcolate al checkout",
+      "remove": "Rimuovi",
+      "update": "Aggiorna",
+      "continue_browsing_html": "Continua a fare shopping",
+      "item_count": {
+        "one": "{{count}} articolo",
+        "other": "{{count}} articoli"
+      }
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "Il Mio Account",
+      "details": "Dettagli Account",
+      "view_addresses": "Vedi Indirizzi",
+      "return": "Torna ai dettagli dell'account"
+    },
+    "addresses": {
+      "title": "I Tuoi Indirizzi",
+      "default": "Predefinito",
+      "add_new": "Aggiungi nuovo indirizzo",
+      "edit_address": "Modifica indirizzo",
+      "first_name": "Nome",
+      "last_name": "Cognome",
+      "company": "Azienda",
+      "address1": "Indirizzo",
+      "address2": "Appartamento, suite, ecc.",
+      "city": "Città",
+      "country": "Paese",
+      "province": "Provincia",
+      "zip": "CAP",
+      "phone": "Telefono",
+      "set_default": "Imposta come predefinito",
+      "add": "Aggiungi indirizzo",
+      "update": "Aggiorna indirizzo",
+      "cancel": "Annulla",
+      "delete": "Elimina",
+      "delete_confirm": "Sei sicuro di voler eliminare questo indirizzo?"
+    },
+    "login": {
+      "title": "Accedi",
+      "desc": "Se hai un account, accedi con il tuo indirizzo email.",
+      "email": "Email",
+      "password": "Password",
+      "forgot_password": "Password dimenticata?",
+      "sign_in": "Accedi",
+      "guest_title": "Continua come ospite",
+      "create_account": "Crea account"
+    },
+    "register": {
+      "title": "Crea Account",
+      "first_name": "Nome",
+      "last_name": "Cognome",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Crea Account",
+      "login": "Accedi"
+    },
+    "reset_password": {
+      "title": "Reimposta Password",
+      "subtext": "Inserisci la tua email e ti invieremo le istruzioni per reimpostare la password.",
+      "email": "Email",
+      "submit": "Invia email",
+      "cancel": "Annulla"
+    },
+    "order": {
+      "title": "Ordine {{name}}",
+      "date": "Effettuato il {{date}}",
+      "cancelled": "Ordine annullato il {{date}}",
+      "cancelled_reason": "Motivo: {{reason}}",
+      "billing_address": "Indirizzo di Fatturazione",
+      "payment_status": "Stato Pagamento",
+      "shipping_address": "Indirizzo di Spedizione",
+      "fulfillment_status": "Stato Spedizione"
+    }
+  },
+  "newsletter": {
+    "label": "Email",
+    "placeholder": "La tua email...",
+    "button": "Iscriviti",
+    "success": "Grazie per l'iscrizione!"
+  },
+  "contact": {
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "phone": "Telefono",
+      "message": "Messaggio",
+      "submit": "Invia Messaggio",
+      "post_success": "Grazie per averci contattato! Ti risponderemo presto."
+    }
+  },
+  "accessibility": {
+    "skip_to_content": "Salta al contenuto principale",
+    "close": "Chiudi",
+    "open_media": "Apri media {{index}} su {{count}}",
+    "navigation_menu": "Menu di navigazione",
+    "cart": "Carrello",
+    "search": "Cerca"
+  }
+}

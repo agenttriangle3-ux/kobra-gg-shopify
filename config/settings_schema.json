@@ -1,0 +1,64 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Kobra.GG Theme",
+    "theme_version": "1.0.0",
+    "theme_author": "Kobra.GG",
+    "theme_documentation_url": "https://kobra.gg",
+    "theme_support_url": "https://kobra.gg"
+  },
+  {
+    "name": "Colori",
+    "settings": [
+      {"type": "color", "id": "color_primary", "label": "Verde Primario", "default": "#39FF14"},
+      {"type": "color", "id": "color_background", "label": "Sfondo", "default": "#0a0a0a"},
+      {"type": "color", "id": "color_secondary", "label": "Grigio Secondario", "default": "#1a1a1a"},
+      {"type": "color", "id": "color_accent", "label": "Cyan Accento", "default": "#00E5FF"},
+      {"type": "color", "id": "color_text", "label": "Testo", "default": "#ffffff"},
+      {"type": "color", "id": "color_text_muted", "label": "Testo secondario", "default": "#9ca3af"}
+    ]
+  },
+  {
+    "name": "Tipografia",
+    "settings": [
+      {"type": "font_picker", "id": "font_heading", "label": "Font titoli", "default": "bebas_neue_n4"},
+      {"type": "font_picker", "id": "font_body", "label": "Font testo", "default": "inter_n4"}
+    ]
+  },
+  {
+    "name": "Logo",
+    "settings": [
+      {"type": "image_picker", "id": "logo", "label": "Logo"},
+      {"type": "range", "id": "logo_width", "min": 50, "max": 300, "step": 10, "default": 160, "label": "Larghezza logo", "unit": "px"}
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {"type": "image_picker", "id": "favicon", "label": "Favicon"}
+    ]
+  },
+  {
+    "name": "Social",
+    "settings": [
+      {"type": "url", "id": "social_instagram_url", "label": "Instagram URL"},
+      {"type": "url", "id": "social_tiktok_url", "label": "TikTok URL"},
+      {"type": "url", "id": "social_twitter_url", "label": "Twitter/X URL"},
+      {"type": "url", "id": "social_youtube_url", "label": "YouTube URL"}
+    ]
+  },
+  {
+    "name": "Contatti",
+    "settings": [
+      {"type": "text", "id": "contact_email", "label": "Email", "default": "nedelcaflorin@gmail.com"},
+      {"type": "text", "id": "contact_phone", "label": "Telefono", "default": "+39 379 153 6175"},
+      {"type": "url", "id": "contact_whatsapp", "label": "Link WhatsApp", "default": "https://wa.me/393791536175"}
+    ]
+  },
+  {
+    "name": "Carrello",
+    "settings": [
+      {"type": "select", "id": "cart_type", "label": "Tipo carrello", "options": [{"value": "drawer", "label": "Cassetto laterale"}, {"value": "page", "label": "Pagina carrello"}], "default": "drawer"}
+    ]
+  }
+]

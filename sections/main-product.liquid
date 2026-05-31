@@ -1,0 +1,149 @@
+<section class="product-page section-padding">
+  <div class="container">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Navigazione breadcrumb">
+      <a href="/" class="breadcrumb__link">Home</a>
+      <span class="breadcrumb__sep">/</span>
+      {%- if product.collections.first -%}
+        <a href="{{ product.collections.first.url }}" class="breadcrumb__link">{{ product.collections.first.title }}</a>
+        <span class="breadcrumb__sep">/</span>
+      {%- endif -%}
+      <span class="breadcrumb__current">{{ product.title }}</span>
+    </nav>
+
+    <div class="product-page__layout">
+      <!-- Gallery -->
+      <div class="product-gallery">
+        <div class="product-gallery__main" id="product-gallery-main">
+          {%- assign first_image = product.featured_image -%}
+          <img
+            id="product-main-image"
+            src="{{ first_image | image_url: width: 800 }}"
+            alt="{{ first_image.alt | default: product.title }}"
+            class="product-gallery__main-img"
+            loading="eager"
+            width="800"
+            height="800"
+          >
+        </div>
+        {%- if product.images.size > 1 -%}
+          <div class="product-gallery__thumbs" role="list" aria-label="Galleria prodotto">
+            {%- for image in product.images limit: 6 -%}
+              <button
+                class="product-gallery__thumb {% if forloop.first %}active{% endif %}"
+                data-image-url="{{ image | image_url: width: 800 }}"
+                data-image-alt="{{ image.alt | default: product.title }}"
+                aria-label="Immagine {{ forloop.index }}"
+                type="button"
+              >
+                <img src="{{ image | image_url: width: 120 }}" alt="{{ image.alt | default: product.title }}" loading="lazy" width="120" height="120">
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <!-- Product Info -->
+      <div class="product-info">
+        {%- if product.vendor -%}
+          <p class="product-info__vendor">{{ product.vendor }}</p>
+        {%- endif -%}
+
+        <h1 class="product-info__title">{{ product.title }}</h1>
+
+        <!-- Price -->
+        <div class="product-info__price" id="product-price">
+          {% render 'price', product: product %}
+        </div>
+
+        <!-- Variants -->
+        {%- unless product.has_only_default_variant -%}
+          {%- for option in product.options_with_values -%}
+            <div class="product-option">
+              <label class="product-option__label">{{ option.name }}</label>
+              <div class="product-option__values">
+                {%- for value in option.values -%}
+                  <input
+                    type="radio"
+                    name="option-{{ option.position }}"
+                    id="option-{{ option.position }}-{{ value | handleize }}"
+                    value="{{ value }}"
+                    class="product-option__input sr-only"
+                    {% if forloop.first %}checked{% endif %}
+                  >
+                  <label for="option-{{ option.position }}-{{ value | handleize }}" class="product-option__value">
+                    {{ value }}
+                  </label>
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        {%- endunless -%}
+
+        <!-- ATC Form -->
+        {%- form 'product', product, id: 'product-form', class: 'product-form' -%}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" id="variant-id">
+
+          <div class="product-form__quantity">
+            <label for="quantity" class="product-form__quantity-label">Quantità</label>
+            <div class="quantity-selector">
+              <button type="button" class="quantity-selector__btn" data-action="decrease" aria-label="Diminuisci">−</button>
+              <input type="number" name="quantity" id="quantity" value="1" min="1" max="99" class="quantity-selector__input" aria-label="Quantità">
+              <button type="button" class="quantity-selector__btn" data-action="increase" aria-label="Aumenta">+</button>
+            </div>
+          </div>
+
+          <div class="product-form__actions">
+            {%- if product.available -%}
+              <button type="submit" name="add" class="btn btn--primary btn--full btn--lg" id="atc-btn">
+                <span>Aggiungi al Carrello</span>
+              </button>
+            {%- else -%}
+              <button type="button" class="btn btn--primary btn--full btn--lg" disabled>Prodotto Esaurito</button>
+            {%- endif -%}
+          </div>
+        {%- endform -%}
+
+        <!-- Trust badges mini -->
+        <div class="product-trust">
+          <span>🔒 Pagamento Sicuro</span>
+          <span>🚚 Spedizione Tracciata</span>
+          <span>↩️ Reso 14gg</span>
+        </div>
+
+        <!-- Tabs: Descrizione, Spedizione, Reso, Pagamenti -->
+        <div class="product-tabs">
+          <div class="product-tabs__nav" role="tablist">
+            <button class="product-tabs__tab active" role="tab" aria-selected="true" data-tab="descrizione">Descrizione</button>
+            <button class="product-tabs__tab" role="tab" aria-selected="false" data-tab="spedizione">Spedizione</button>
+            <button class="product-tabs__tab" role="tab" aria-selected="false" data-tab="reso">Reso</button>
+            <button class="product-tabs__tab" role="tab" aria-selected="false" data-tab="pagamenti">Pagamenti</button>
+          </div>
+          <div class="product-tabs__content">
+            <div class="product-tabs__panel active rte" id="tab-descrizione" role="tabpanel">
+              {{ product.description }}
+            </div>
+            <div class="product-tabs__panel" id="tab-spedizione" role="tabpanel">
+              <p>Spediamo in tutta Italia e Europa. Tempi di consegna: <strong>5–15 giorni lavorativi</strong> dalla conferma ordine. Riceverai un codice di tracciamento via email.</p>
+              <p>Spedizione gratuita per ordini superiori a €50.</p>
+            </div>
+            <div class="product-tabs__panel" id="tab-reso" role="tabpanel">
+              <p>Hai <strong>14 giorni</strong> dalla ricezione per restituire il prodotto, ai sensi del D.Lgs. 206/2005 (Codice del Consumo europeo). Il prodotto deve essere integro e nella confezione originale.</p>
+              <p>Per avviare un reso: <a href="mailto:nedelcaflorin@gmail.com">nedelcaflorin@gmail.com</a></p>
+            </div>
+            <div class="product-tabs__panel" id="tab-pagamenti" role="tabpanel">
+              <p>Accettiamo <strong>Visa, Mastercard, American Express, PayPal</strong> e altri metodi tramite <strong>Stripe</strong>. I tuoi dati di pagamento sono crittografati SSL e non vengono mai memorizzati.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Prodotto",
+  "settings": []
+}
+{% endschema %}

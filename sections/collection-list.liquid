@@ -1,0 +1,70 @@
+<section class="collection-list section-padding">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <h2 class="section-title">{{ section.settings.title | default: 'ESPLORA PER CATEGORIA' }}</h2>
+      {%- if section.settings.subtitle != blank -%}
+        <p class="section-subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="collection-grid">
+      {%- for block in section.blocks -%}
+        {%- assign col = collections[block.settings.collection] -%}
+        <a href="/collections/{{ block.settings.collection_handle | default: block.settings.collection }}" class="collection-card" {{ block.shopify_attributes }}>
+          <div class="collection-card__image">
+            {%- if block.settings.image != blank -%}
+              <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.title }}" loading="lazy" width="600" height="400">
+            {%- elsif col != blank and col.image != blank -%}
+              <img src="{{ col.image | image_url: width: 600 }}" alt="{{ col.title }}" loading="lazy" width="600" height="400">
+            {%- else -%}
+              <div class="collection-card__placeholder">{{ block.settings.icon | default: '🎮' }}</div>
+            {%- endif -%}
+            <div class="collection-card__overlay"></div>
+          </div>
+          <div class="collection-card__content">
+            <h3 class="collection-card__title">{{ block.settings.title }}</h3>
+            {%- if col != blank -%}
+              <p class="collection-card__count">{{ col.products_count }} prodotti</p>
+            {%- endif -%}
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lista Categorie",
+  "settings": [
+    {"type": "text", "id": "title", "label": "Titolo", "default": "ESPLORA PER CATEGORIA"},
+    {"type": "text", "id": "subtitle", "label": "Sottotitolo"}
+  ],
+  "blocks": [
+    {
+      "type": "collection_item",
+      "name": "Categoria",
+      "settings": [
+        {"type": "text", "id": "title", "label": "Nome categoria"},
+        {"type": "collection", "id": "collection", "label": "Collezione"},
+        {"type": "text", "id": "collection_handle", "label": "Handle collezione"},
+        {"type": "image_picker", "id": "image", "label": "Immagine"},
+        {"type": "text", "id": "icon", "label": "Emoji icona", "default": "🎮"}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lista Categorie",
+      "blocks": [
+        {"type": "collection_item", "settings": {"title": "Cuffie", "collection_handle": "cuffie", "icon": "🎧"}},
+        {"type": "collection_item", "settings": {"title": "Mouse", "collection_handle": "mouse", "icon": "🖱️"}},
+        {"type": "collection_item", "settings": {"title": "Tastiere", "collection_handle": "tastiere", "icon": "⌨️"}},
+        {"type": "collection_item", "settings": {"title": "Controller", "collection_handle": "controller", "icon": "🎮"}},
+        {"type": "collection_item", "settings": {"title": "Mousepad", "collection_handle": "mousepad", "icon": "🟩"}},
+        {"type": "collection_item", "settings": {"title": "Tutti i Prodotti", "collection_handle": "all", "icon": "🛒"}}
+      ]
+    }
+  ]
+}
+{% endschema %}

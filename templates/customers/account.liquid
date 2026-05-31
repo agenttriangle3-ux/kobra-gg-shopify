@@ -1,0 +1,51 @@
+{% layout 'theme' %}
+
+<section class="account-page section-padding">
+  <div class="container">
+    <div class="account-header">
+      <h1 class="account-header__title">Il Mio Account</h1>
+      <a href="/account/logout" class="btn btn--outline btn--sm">Esci</a>
+    </div>
+
+    <div class="account-grid">
+      <!-- Orders -->
+      <div class="account-section">
+        <h2 class="account-section__title">I Miei Ordini</h2>
+        {%- if customer.orders.size > 0 -%}
+          <table class="orders-table">
+            <thead>
+              <tr>
+                <th>Ordine</th>
+                <th>Data</th>
+                <th>Stato Pagamento</th>
+                <th>Stato Spedizione</th>
+                <th>Totale</th>
+              </tr>
+            </thead>
+            <tbody>
+              {%- for order in customer.orders -%}
+                <tr>
+                  <td><a href="{{ order.customer_url }}" class="link--green">{{ order.name }}</a></td>
+                  <td>{{ order.created_at | date: "%d/%m/%Y" }}</td>
+                  <td>{{ order.financial_status_label }}</td>
+                  <td>{{ order.fulfillment_status_label }}</td>
+                  <td>{{ order.total_price | money }}</td>
+                </tr>
+              {%- endfor -%}
+            </tbody>
+          </table>
+        {%- else -%}
+          <p class="account-empty">Non hai ancora effettuato ordini. <a href="/collections/all" class="link--green">Inizia a fare shopping!</a></p>
+        {%- endif -%}
+      </div>
+
+      <!-- Details -->
+      <div class="account-section">
+        <h2 class="account-section__title">Dettagli Account</h2>
+        <p>{{ customer.first_name }} {{ customer.last_name }}</p>
+        <p>{{ customer.email }}</p>
+        <a href="/account/addresses" class="link--green">Gestisci indirizzi</a>
+      </div>
+    </div>
+  </div>
+</section>

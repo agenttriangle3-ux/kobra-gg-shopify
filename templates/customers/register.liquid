@@ -1,0 +1,36 @@
+{% layout 'theme' %}
+
+<section class="auth-page section-padding">
+  <div class="container">
+    <div class="auth-card">
+      <h1 class="auth-card__title">Crea Account</h1>
+      <p class="auth-card__subtitle">Unisciti al clan Kobra.GG</p>
+
+      {%- form 'create_customer', id: 'register-form' -%}
+        {%- if form.errors -%}
+          <div class="auth-errors">{{ form.errors | default_errors }}</div>
+        {%- endif -%}
+
+        <div class="auth-field">
+          <label for="reg-firstname" class="auth-label">Nome</label>
+          <input type="text" name="customer[first_name]" id="reg-firstname" class="auth-input" autocomplete="given-name" required>
+        </div>
+        <div class="auth-field">
+          <label for="reg-lastname" class="auth-label">Cognome</label>
+          <input type="text" name="customer[last_name]" id="reg-lastname" class="auth-input" autocomplete="family-name" required>
+        </div>
+        <div class="auth-field">
+          <label for="reg-email" class="auth-label">Email</label>
+          <input type="email" name="customer[email]" id="reg-email" class="auth-input" autocomplete="email" required>
+        </div>
+        <div class="auth-field">
+          <label for="reg-password" class="auth-label">Password</label>
+          <input type="password" name="customer[password]" id="reg-password" class="auth-input" autocomplete="new-password" required minlength="5">
+        </div>
+        <button type="submit" class="btn btn--primary btn--full btn--lg">Crea Account</button>
+      {%- endform -%}
+
+      <p class="auth-alt">Hai già un account? <a href="/account/login" class="link--green">Accedi</a></p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,49 @@
+{%- assign collection = collections[section.settings.collection] -%}
+{%- if collection != blank -%}
+<section class="featured-collection section-padding">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header__left">
+        <div class="section-header__accent"></div>
+        <div>
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+          {%- endif -%}
+          <h2 class="section-title">{{ section.settings.title | default: collection.title }}</h2>
+        </div>
+      </div>
+      <a href="{{ collection.url }}" class="section-header__link">
+        Vedi tutti
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+
+    <div class="product-grid product-grid--{{ section.settings.columns }}">
+      {%- for product in collection.products limit: section.settings.products_count -%}
+        {% render 'product-card', product: product %}
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.show_view_all -%}
+      <div class="featured-collection__cta">
+        <a href="{{ collection.url }}" class="btn btn--outline">Vedi tutta la collezione</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Collezione in evidenza",
+  "settings": [
+    {"type": "text", "id": "eyebrow", "label": "Testo sopra titolo", "default": "🔥 IN TENDENZA"},
+    {"type": "text", "id": "title", "label": "Titolo sezione", "default": "Prodotti Consigliati"},
+    {"type": "collection", "id": "collection", "label": "Collezione"},
+    {"type": "range", "id": "products_count", "min": 2, "max": 16, "step": 1, "default": 8, "label": "Numero prodotti"},
+    {"type": "select", "id": "columns", "label": "Colonne desktop", "options": [{"value": "3", "label": "3 colonne"}, {"value": "4", "label": "4 colonne"}], "default": "4"},
+    {"type": "checkbox", "id": "show_view_all", "label": "Mostra bottone 'Vedi tutti'", "default": true}
+  ],
+  "presets": [{"name": "Collezione in evidenza"}]
+}
+{% endschema %}

@@ -1,0 +1,71 @@
+<header class="site-header" id="site-header" role="banner">
+  <div class="header__inner">
+    <!-- Logo -->
+    <a href="/" class="header__logo" aria-label="{{ shop.name }} - Home">
+      {%- if section.settings.logo != blank -%}
+        <img src="{{ section.settings.logo | image_url: width: 200 }}" alt="{{ shop.name }}" class="header__logo-img" width="160" height="48" loading="eager">
+      {%- else -%}
+        <span class="header__logo-text">KOBRA<span class="text-green">.GG</span></span>
+      {%- endif -%}
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="header__nav" role="navigation" aria-label="Navigazione principale">
+      <a href="/" class="header__nav-link">Home</a>
+      <a href="/collections/cuffie" class="header__nav-link">Cuffie</a>
+      <a href="/collections/mouse" class="header__nav-link">Mouse</a>
+      <a href="/collections/tastiere" class="header__nav-link">Tastiere</a>
+      <a href="/collections/controller" class="header__nav-link">Controller</a>
+      <a href="/collections/mousepad" class="header__nav-link">Mousepad</a>
+      <a href="/collections/all?sort_by=price-ascending" class="header__nav-link header__nav-link--sale">Sale 🔥</a>
+    </nav>
+
+    <!-- Actions -->
+    <div class="header__actions">
+      <button class="header__action-btn" id="search-toggle" aria-label="Cerca">
+        {% render 'icon-search' %}
+      </button>
+      <a href="/account" class="header__action-btn" aria-label="Account">
+        {% render 'icon-account' %}
+      </a>
+      <a href="https://wa.me/393791536175" target="_blank" rel="noopener noreferrer" class="header__action-btn header__action-btn--whatsapp" aria-label="WhatsApp">
+        {% render 'icon-whatsapp' %}
+      </a>
+      <button class="header__cart-btn" id="cart-drawer-open" aria-label="Carrello ({{ cart.item_count }} articoli)">
+        {% render 'icon-cart' %}
+        <span class="header__cart-count {% if cart.item_count == 0 %}hidden{% endif %}" id="cart-count">{{ cart.item_count }}</span>
+      </button>
+      <button class="header__menu-btn" id="mobile-menu-open" aria-label="Apri menu" aria-expanded="false">
+        {% render 'icon-menu' %}
+      </button>
+    </div>
+  </div>
+
+  <!-- Search Bar (hidden by default) -->
+  <div class="header__search" id="search-bar" aria-hidden="true">
+    <div class="header__search-inner">
+      <form action="/search" method="get" role="search">
+        <input type="hidden" name="type" value="product">
+        <input class="header__search-input" type="search" name="q" id="search-input" placeholder="Cerca prodotti gaming..." autocomplete="off" aria-label="Cerca prodotti">
+        <button type="submit" class="header__search-submit" aria-label="Esegui ricerca">
+          {% render 'icon-search' %}
+        </button>
+      </form>
+      <button class="header__search-close" id="search-close" aria-label="Chiudi ricerca">
+        {% render 'icon-close' %}
+      </button>
+      <div class="header__search-results" id="search-results" aria-live="polite"></div>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {"type": "image_picker", "id": "logo", "label": "Logo"},
+    {"type": "range", "id": "logo_width", "min": 50, "max": 300, "step": 10, "default": 160, "label": "Larghezza logo (px)", "unit": "px"},
+    {"type": "text", "id": "announcement", "label": "Testo annuncio"}
+  ]
+}
+{% endschema %}

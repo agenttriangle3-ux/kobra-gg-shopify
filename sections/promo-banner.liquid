@@ -1,0 +1,28 @@
+{%- if section.settings.show_banner -%}
+<div class="promo-banner" id="promo-banner" style="background: {{ section.settings.bg_color }}; color: {{ section.settings.text_color }};">
+  <div class="promo-banner__inner">
+    {%- if section.settings.link != blank -%}
+      <a href="{{ section.settings.link }}" class="promo-banner__text">{{ section.settings.text }}</a>
+    {%- else -%}
+      <span class="promo-banner__text">{{ section.settings.text }}</span>
+    {%- endif -%}
+    <button class="promo-banner__close" id="promo-banner-close" aria-label="Chiudi">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+</div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Barra Promozione",
+  "settings": [
+    {"type": "checkbox", "id": "show_banner", "label": "Mostra barra", "default": true},
+    {"type": "text", "id": "text", "label": "Testo", "default": "🚀 NUOVO BRAND - SPEDIZIONE GRATUITA SOPRA €50 - WhatsApp 379 153 6175"},
+    {"type": "url", "id": "link", "label": "Link (opzionale)"},
+    {"type": "color", "id": "bg_color", "label": "Colore sfondo", "default": "#39FF14"},
+    {"type": "color", "id": "text_color", "label": "Colore testo", "default": "#0a0a0a"}
+  ],
+  "presets": [{"name": "Barra Promozione"}]
+}
+{% endschema %}

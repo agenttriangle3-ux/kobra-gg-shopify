@@ -1,0 +1,116 @@
+<section class="collection-page section-padding">
+  <div class="container">
+    <!-- Collection Header -->
+    <div class="collection-header">
+      <h1 class="collection-header__title">{{ collection.title }}</h1>
+      {%- if collection.description != blank -%}
+        <div class="collection-header__desc rte">{{ collection.description }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="collection-layout">
+      <!-- Filters Sidebar -->
+      <aside class="collection-filters" id="collection-filters">
+        <div class="collection-filters__header">
+          <h2 class="collection-filters__title">Filtri</h2>
+          <button class="collection-filters__clear" id="clear-filters">Rimuovi tutto</button>
+        </div>
+
+        {%- for filter in collection.filters -%}
+          <div class="collection-filter">
+            <button class="collection-filter__toggle" aria-expanded="true" type="button">
+              <span>{{ filter.label }}</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="collection-filter__values">
+              {%- if filter.type == 'list' -%}
+                {%- for filter_value in filter.values -%}
+                  <label class="collection-filter__label">
+                    <input type="checkbox"
+                      name="{{ filter_value.param_name }}"
+                      value="{{ filter_value.value }}"
+                      {% if filter_value.active %}checked{% endif %}
+                      class="collection-filter__checkbox"
+                      data-filter-url="{{ filter_value.url_to_add }}"
+                      data-filter-remove="{{ filter_value.url_to_remove }}"
+                    >
+                    <span>{{ filter_value.label }}</span>
+                    <span class="collection-filter__count">({{ filter_value.count }})</span>
+                  </label>
+                {%- endfor -%}
+              {%- elsif filter.type == 'price_range' -%}
+                <div class="collection-filter__price">
+                  <input type="number" name="{{ filter.min_value.param_name }}" value="{{ filter.min_value.value | money_without_currency }}" placeholder="Min €" class="collection-filter__price-input">
+                  <span>—</span>
+                  <input type="number" name="{{ filter.max_value.param_name }}" value="{{ filter.max_value.value | money_without_currency }}" placeholder="Max €" class="collection-filter__price-input">
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </aside>
+
+      <!-- Products -->
+      <div class="collection-products">
+        <!-- Sort + Count bar -->
+        <div class="collection-toolbar">
+          <span class="collection-toolbar__count">{{ collection.products_count }} prodotti</span>
+          <div class="collection-toolbar__sort">
+            <label for="sort-by" class="sr-only">Ordina per</label>
+            <select name="sort_by" id="sort-by" class="collection-toolbar__select" onchange="window.location.search = 'sort_by=' + this.value">
+              {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+              <option value="manual" {% if sort_by == 'manual' %}selected{% endif %}>In evidenza</option>
+              <option value="best-selling" {% if sort_by == 'best-selling' %}selected{% endif %}>Più venduti</option>
+              <option value="price-ascending" {% if sort_by == 'price-ascending' %}selected{% endif %}>Prezzo: dal basso</option>
+              <option value="price-descending" {% if sort_by == 'price-descending' %}selected{% endif %}>Prezzo: dall'alto</option>
+              <option value="created-ascending" {% if sort_by == 'created-ascending' %}selected{% endif %}>Più vecchi</option>
+              <option value="created-descending" {% if sort_by == 'created-descending' %}selected{% endif %}>Più recenti</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="product-grid product-grid--3" id="product-grid">
+          {%- paginate collection.products by section.settings.products_per_page -%}
+            {%- if collection.products.size > 0 -%}
+              {%- for product in collection.products -%}
+                {% render 'product-card', product: product %}
+              {%- endfor -%}
+            {%- else -%}
+              <div class="collection-empty">
+                <p>Nessun prodotto trovato in questa categoria.</p>
+                <a href="/collections/all" class="btn btn--outline">Vedi tutti i prodotti</a>
+              </div>
+            {%- endif -%}
+
+            {%- if paginate.pages > 1 -%}
+              <div class="pagination" role="navigation" aria-label="Paginazione">
+                {%- if paginate.previous -%}
+                  <a href="{{ paginate.previous.url }}" class="pagination__btn">← Precedente</a>
+                {%- endif -%}
+                {%- for part in paginate.parts -%}
+                  {%- if part.is_link -%}
+                    <a href="{{ part.url }}" class="pagination__btn">{{ part.title }}</a>
+                  {%- else -%}
+                    <span class="pagination__btn pagination__btn--current" aria-current="page">{{ part.title }}</span>
+                  {%- endif -%}
+                {%- endfor -%}
+                {%- if paginate.next -%}
+                  <a href="{{ paginate.next.url }}" class="pagination__btn">Successiva →</a>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          {%- endpaginate -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Griglia Prodotti Collezione",
+  "settings": [
+    {"type": "range", "id": "products_per_page", "min": 6, "max": 48, "step": 6, "default": 24, "label": "Prodotti per pagina"}
+  ]
+}
+{% endschema %}

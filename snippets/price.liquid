@@ -1,0 +1,9 @@
+{%- assign compare_price = product.compare_at_price -%}
+{%- assign current_price = product.price -%}
+
+<div class="price {% if compare_price > current_price %}price--on-sale{% endif %}">
+  <span class="price__current">{{ current_price | money }}</span>
+  {%- if compare_price > current_price -%}
+    <s class="price__compare">{{ compare_price | money }}</s>
+  {%- endif -%}
+</div>
