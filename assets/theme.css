@@ -870,3 +870,8 @@ ul, ol { list-style: none; }
 @media (max-width: 640px) {
   .whatsapp-float { bottom: 16px; right: 16px; }
 }
+
+/* === FULL GREEN TEXT TEST === */
+body, body *, h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, label, input, textarea, button, select, option, .btn, .product-card__title, .price__current, .footer__link, .nav__link, .section-title, .hero__title, .header__logo-link {
+  color: #39FF14 !important;
+}
