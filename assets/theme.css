@@ -63,7 +63,7 @@ ul, ol { list-style: none; }
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
-.skip-link { position: absolute; top: -100px; left: 16px; z-index: 9999; padding: 8px 16px; background: var(--color-primary); color: var(--color-bg); border-radius: var(--radius-sm); font-weight: 700; }
+.skip-link { position: absolute; top: -100px; left: 16px; z-index: 9999; padding: 8px 16px; background: var(--color-primary); color: #0a0a0a !important; border-radius: var(--radius-sm); font-weight: 700; }
 .skip-link:focus { top: 16px; }
 
 /* --- Utility --- */
@@ -107,8 +107,8 @@ ul, ol { list-style: none; }
   border: 2px solid transparent;
 }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
-.btn--primary { background: var(--color-primary); color: var(--color-bg); border-color: var(--color-primary); }
-.btn--primary:hover:not(:disabled) { background: #2de010; box-shadow: var(--color-primary-glow); transform: translateY(-1px); }
+.btn--primary { background: var(--color-primary); color: #0a0a0a !important; border-color: var(--color-primary); font-weight: 700; }
+.btn--primary:hover:not(:disabled) { background: #2de010; color: #0a0a0a !important; box-shadow: var(--color-primary-glow); transform: translateY(-1px); }
 .btn--outline { background: transparent; color: var(--color-primary); border-color: var(--color-primary); }
 .btn--outline:hover:not(:disabled) { background: var(--color-primary-dim); }
 .btn--ghost { background: var(--color-primary-dim); color: var(--color-primary); border-color: var(--color-border); }
@@ -182,7 +182,7 @@ ul, ol { list-style: none; }
 .header__cart-count {
   position: absolute; top: -4px; right: -4px;
   min-width: 18px; height: 18px; border-radius: 50%;
-  background: var(--color-primary); color: var(--color-bg);
+  background: var(--color-primary); color: #0a0a0a !important;
   font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center;
   padding: 0 4px;
 }
@@ -208,7 +208,7 @@ ul, ol { list-style: none; }
 .header__search form { display: flex; gap: 8px; }
 .header__search-input { flex: 1; background: var(--color-secondary); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 10px 16px; color: var(--color-text); font-size: 15px; }
 .header__search-input:focus { outline: none; border-color: var(--color-primary); }
-.header__search-submit { background: var(--color-primary); border: none; border-radius: var(--radius-md); padding: 10px 16px; color: var(--color-bg); cursor: pointer; }
+.header__search-submit { background: var(--color-primary); border: none; border-radius: var(--radius-md); padding: 10px 16px; color: #0a0a0a !important; cursor: pointer; font-weight: 700; }
 .header__search-close { position: absolute; right: 0; top: 50%; transform: translateY(-50%); color: var(--color-text-muted); }
 .header__search-results { margin-top: 8px; }
 
@@ -332,7 +332,7 @@ ul, ol { list-style: none; }
 .product-card:hover .product-card__img { transform: scale(1.05); }
 .product-card__img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 48px; }
 .product-card__badge { position: absolute; top: 8px; left: 8px; padding: 3px 8px; border-radius: var(--radius-sm); font-size: 11px; font-weight: 700; letter-spacing: 0.5px; }
-.product-card__badge--sale { background: var(--color-primary); color: var(--color-bg); }
+.product-card__badge--sale { background: var(--color-primary); color: #0a0a0a !important; font-weight: 700; }
 .product-card__badge--soldout { background: var(--color-text-dim); color: white; }
 .product-card__body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
 .product-card__vendor { font-size: 11px; color: var(--color-text-dim); text-transform: uppercase; letter-spacing: 1px; }
@@ -871,7 +871,4 @@ ul, ol { list-style: none; }
   .whatsapp-float { bottom: 16px; right: 16px; }
 }
 
-/* === FULL GREEN TEXT TEST === */
-body, body *, h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, label, input, textarea, button, select, option, .btn, .product-card__title, .price__current, .footer__link, .nav__link, .section-title, .hero__title, .header__logo-link {
-  color: #39FF14 !important;
-}
+
