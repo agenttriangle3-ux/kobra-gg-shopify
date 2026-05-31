@@ -3,7 +3,7 @@
     <!-- Logo -->
     <a href="/" class="header__logo" aria-label="{{ shop.name }} - Home">
       {%- if section.settings.logo != blank -%}
-        <img src="{{ section.settings.logo | image_url: width: 200 }}" alt="{{ shop.name }}" class="header__logo-img" width="160" height="48" loading="eager">
+        <img src="{{ section.settings.logo | image_url: width: 600 }}" alt="{{ shop.name }}" class="header__logo-img" loading="eager">
       {%- else -%}
         <span class="header__logo-text">KOBRA<span class="text-green">.GG</span></span>
       {%- endif -%}
