@@ -79,7 +79,7 @@ Accettiamo pagamenti tramite carta di credito/debito elaborati in modo sicuro da
 
 ## 5. Spedizione e Consegna
 
-Spediamo in tutta Europa. Tempi di consegna stimati: 3–15 giorni lavorativi dalla conferma ordine. Essendo un servizio dropshipping, i prodotti vengono spediti direttamente dai nostri fornitori.
+Spediamo in tutta Europa. Tempi di consegna stimati: 4–8 giorni lavorativi (4-5 Italia, 5-8 Europa) dalla conferma ordine. Essendo un servizio dropshipping, i prodotti vengono spediti direttamente dai nostri fornitori.
 
 ## 6. Diritto di Recesso (14 giorni)
 
@@ -159,7 +159,12 @@ nedelcaflorin@gmail.com
 
 ## Tempi di Consegna
 
-3–15 giorni lavorativi dalla conferma ordine.
+Spediamo rapidamente in tutta Europa:
+
+- Italia: 4–5 giorni lavorativi
+- Resto d'Europa: 5–8 giorni lavorativi
+
+Tempi calcolati dalla conferma dell'ordine.
 
 ## Paesi di Spedizione
 
@@ -181,11 +186,8 @@ Kobra.gg opera in dropshipping: i prodotti vengono spediti direttamente dai nost
 
 | Paese | Giorni lavorativi |
 |-------|-------------------|
-| Italia | 5–12 giorni |
-| Germania | 7–14 giorni |
-| Francia | 7–14 giorni |
-| Spagna | 7–15 giorni |
-| Altri paesi UE | 8–15 giorni |
+| Italia | 4–5 giorni |
+| Resto Europa (DE, FR, ES, NL, BE, AT, PT, etc.) | 5–8 giorni |
 
 ## Problemi con la Spedizione?
 
@@ -211,7 +213,7 @@ Accettiamo Visa, Mastercard, American Express e altre carte tramite Stripe. Il p
 
 ## Quanto tempo ci vuole per la consegna?
 
-I tempi variano da 5 a 15 giorni lavorativi a seconda del paese di destinazione e del prodotto.
+4 a 8 giorni lavorativi (4-5 giorni in Italia, 5-8 nel resto d'Europa).
 
 ## Posso restituire un prodotto?
 
@@ -255,6 +257,48 @@ Offrire prodotti gaming di qualità — cuffie, mouse, tastiere, controller, mou
 
 Email: nedelcaflorin@gmail.com
 WhatsApp: +39 379 153 6175
+
+---
+
+## PAGINA: Contatti
+**Titolo:** Contatti
+**Handle:** contatti
+
+---
+
+# Contattaci
+
+Siamo qui per aiutarti. Per qualsiasi domanda su prodotti, ordini, spedizioni o resi, scrivici — rispondiamo entro 24 ore (di solito molto prima).
+
+## Email
+
+**nedelcaflorin@gmail.com**
+
+Per ordini, resi, fatturazione o domande generali. Ti risponderemo entro 24 ore lavorative.
+
+## WhatsApp
+
+**+39 379 153 6175**
+
+[Scrivici su WhatsApp](https://wa.me/393791536175)
+
+Disponibile 7 giorni su 7 — il modo più veloce per ricevere supporto. Adatto per domande veloci, tracking ordini e assistenza pre-vendita.
+
+## Modulo di Contatto
+
+Compila il modulo qui sotto (se la tua pagina /contatti ha già il form integrato dal tema Shopify, questa sezione sarà sostituita dal form automatico).
+
+## Tempi di Risposta
+
+- Email: entro 24 ore lavorative
+- WhatsApp: tipicamente entro 1–2 ore (dalle 9:00 alle 22:00)
+- Domande urgenti su ordini in transito: WhatsApp consigliato
+
+## Sede Operativa
+
+Kobra.gg — Italia
+
+(Operiamo come negozio online; non disponiamo di un punto vendita fisico aperto al pubblico.)
 
 ---
 
