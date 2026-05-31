@@ -641,7 +641,218 @@ ul, ol { list-style: none; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 .animate-fade-in { animation: fadeIn 0.4s ease forwards; }
 
+/* Button glow pulse — slow 2 s cycling neon shadow */
+@keyframes btnGlowPulse {
+  0%   { box-shadow: 0 0 8px rgba(57,255,20,0.35), 0 0 20px rgba(57,255,20,0.15); }
+  100% { box-shadow: 0 0 18px rgba(57,255,20,0.75), 0 0 40px rgba(57,255,20,0.35); }
+}
+
+/* Hero GAMING word — subtle brightness flicker */
+@keyframes heroFlicker {
+  0%, 100% { text-shadow: 0 0 30px rgba(57,255,20,0.5), 0 0 60px rgba(57,255,20,0.2); }
+  33%       { text-shadow: 0 0 20px rgba(57,255,20,0.3), 0 0 45px rgba(57,255,20,0.12); }
+  66%       { text-shadow: 0 0 40px rgba(57,255,20,0.7), 0 0 80px rgba(57,255,20,0.3); }
+}
+
+/* WhatsApp — expanding ring */
+@keyframes waRing {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  100% { transform: scale(1.9); opacity: 0;   }
+}
+
+/* Sale badge glow */
+@keyframes badgeGlow {
+  0%, 100% { box-shadow: 0 0 6px rgba(57,255,20,0.4); }
+  50%       { box-shadow: 0 0 14px rgba(57,255,20,0.8); }
+}
+
 /* ============================================================
    FEATURED COLLECTION
    ============================================================ */
 .featured-collection__cta { text-align: center; margin-top: 32px; }
+
+/* ============================================================
+   GREEN ACCENT AMPLIFICATION — KOBRA.GG
+   ============================================================ */
+
+/* 1 — PRIMARY BUTTON: pulsing neon glow (2 s, ease-in-out, infinite) */
+.btn--primary {
+  animation: btnGlowPulse 2s ease-in-out infinite alternate;
+}
+.btn--primary:hover:not(:disabled) {
+  animation: none;
+  background: #2de010;
+  box-shadow: 0 0 24px rgba(57,255,20,0.75), 0 0 48px rgba(57,255,20,0.3);
+  transform: translateY(-1px);
+}
+
+/* 2 — HERO "GAMING" ACCENT WORD: animated flicker */
+.hero__title-accent {
+  animation: heroFlicker 3s ease-in-out infinite;
+}
+
+/* 3 — HERO BACKGROUND GRID: slightly more visible */
+.hero__grid {
+  opacity: 0.055;
+}
+
+/* 4 — HERO BG RADIAL: stronger green core */
+.hero__bg-gradient {
+  background: radial-gradient(ellipse at center, rgba(57,255,20,0.07) 0%, rgba(10,10,10,1) 68%);
+}
+
+/* 5 — WHATSAPP FLOAT: expanding ring pulse */
+.whatsapp-float::before {
+  content: '';
+  position: absolute; inset: 0; border-radius: 50%;
+  background: rgba(57,255,20,0.35);
+  animation: waRing 2s ease-out infinite;
+  pointer-events: none;
+}
+.whatsapp-float::after {
+  content: '';
+  position: absolute; inset: 0; border-radius: 50%;
+  background: rgba(57,255,20,0.2);
+  animation: waRing 2s ease-out infinite 0.7s;
+  pointer-events: none;
+}
+
+/* 6 — SALE BADGE: green glow pulse */
+.product-card__badge--sale {
+  animation: badgeGlow 2.5s ease-in-out infinite;
+}
+
+/* 7 — SECTION TITLE: green underline accent bar */
+.section-title {
+  position: relative;
+  padding-bottom: 14px;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 60px; height: 4px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(57,255,20,0.5);
+}
+.section-header--center .section-title::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 8 — SECTION DIVIDER: gradient green line utility class */
+.section-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent 0%, var(--color-primary) 50%, transparent 100%);
+  opacity: 0.35;
+  margin-block: 8px;
+}
+
+/* 9 — PROMO BANNER: green left border accent */
+.promo-banner__inner {
+  border-left: 4px solid var(--color-primary);
+}
+
+/* 10 — CART DRAWER: green accent on footer border + subtotal value */
+.cart-drawer__footer {
+  border-top: 2px solid rgba(57,255,20,0.35);
+  box-shadow: 0 -4px 24px rgba(57,255,20,0.06);
+}
+.cart-drawer__subtotal {
+  color: var(--color-text);
+}
+.cart-drawer__subtotal span:last-child {
+  color: var(--color-primary);
+  text-shadow: 0 0 10px rgba(57,255,20,0.4);
+}
+.cart-drawer__content {
+  border-left: 1px solid rgba(57,255,20,0.25);
+}
+
+/* 11 — FORM INPUTS: green focus glow */
+.auth-input:focus,
+.contact-form__input:focus,
+.newsletter__input:focus,
+.header__search-input:focus,
+.cart-summary__note-input:focus,
+.search-page__input:focus,
+.collection-filter__price-input:focus,
+.collection-toolbar__select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(57,255,20,0.15), 0 0 12px rgba(57,255,20,0.1);
+}
+
+/* 12 — FOOTER LINKS: stronger green hover transition */
+.footer__link {
+  transition: color var(--transition), text-shadow var(--transition);
+}
+.footer__link:hover {
+  color: var(--color-primary);
+  text-shadow: 0 0 8px rgba(57,255,20,0.4);
+}
+
+/* 13 — PRODUCT CARD: stronger green border tint */
+.product-card {
+  border-color: rgba(57,255,20,0.12);
+}
+.product-card:hover {
+  border-color: rgba(57,255,20,0.5);
+  box-shadow: 0 0 24px rgba(57,255,20,0.12), 0 4px 16px rgba(0,0,0,0.5);
+}
+
+/* 14 — PRODUCT TITLE: green hover with smooth transition */
+.product-card__title-link {
+  transition: color var(--transition);
+}
+.product-card__title-link:hover {
+  color: var(--color-primary);
+}
+
+/* 15 — PRICE: subtle green glow on hover */
+.price__current {
+  transition: text-shadow var(--transition);
+}
+.price__current:hover {
+  text-shadow: 0 0 10px rgba(57,255,20,0.5);
+}
+
+/* 16 — COLLECTION CARD: stronger glow on hover */
+.collection-card:hover {
+  border-color: rgba(57,255,20,0.6);
+  box-shadow: 0 0 28px rgba(57,255,20,0.18), 0 8px 24px rgba(0,0,0,0.5);
+}
+
+/* 17 — HEADER: subtle green bottom border glow */
+.site-header {
+  border-bottom-color: rgba(57,255,20,0.2);
+  box-shadow: 0 1px 16px rgba(57,255,20,0.05);
+}
+
+/* 18 — NAV LINK active/hover: green underline slide */
+.header__nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 12px; right: 12px;
+  height: 2px;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transition: transform var(--transition);
+  border-radius: 1px;
+}
+.header__nav-link:hover::after,
+.header__nav-link--active::after {
+  transform: scaleX(1);
+}
+
+/* 19 — NEWSLETTER CARD: enhanced green glow */
+.newsletter__card {
+  box-shadow: 0 0 60px rgba(57,255,20,0.1), inset 0 0 40px rgba(57,255,20,0.02);
+}
+
+/* 20 — MOBILE: ensure pulse ring doesn't overflow viewport */
+@media (max-width: 640px) {
+  .whatsapp-float { bottom: 16px; right: 16px; }
+}
